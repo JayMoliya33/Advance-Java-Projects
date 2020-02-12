@@ -10,7 +10,7 @@
          <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Advance Java Projects</title>
+    <title>C to F Convertor</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -28,6 +28,20 @@
     <link rel="stylesheet" href="css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+        <style>
+         .button{
+                background-color: white;
+                 color: black;
+                    border: 2px solid #4CAF50;
+                    border-radius: 12px;
+                   width: fit-content;
+                    height: fit-content;
+            }
+            .button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+</style>
     </head>
     <body>
         <%!
@@ -57,18 +71,18 @@
                 <div class="col-lg-6">
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
-                           <div class="form">
-              <form action="CtoFConvertor.jsp" method="post" role="form" class="contactForm">
-                <div class="form-group">
-                  <input type="number" name="number" class="form-control" id="number" placeholder="Enter Temprature in Celsius" data-rule="minlen:4" data-msg="Please enter at least 1 number" required="required"/>
+                           <div class="form" >
+              <form action="CtoFConvertor.jsp" method="post" role="form" class="contactForm" autocomplete="off">
+                <div class="form-group" >
+                  <input type="number" name="number" class="form-control" placeholder="Enter Temprature in Celsius" required="required"/>
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                    <input type="number" value="<%= f %>" class="form-control" id="number" data-rule="minlen:4"/>
+                    <input type="number" value="<%= f %>" class="form-control"/>
                   <div class="validation"></div>
                 </div>
-                 <div class="d-none d-lg-block" class="text-center">
-                     <button type="submit" name="convert">Convert to Fahrenheit</button>
+                 <div>
+                     <button type="submit" name="convert" class="button">Convert to Fahrenheit</button>
                  </div>
                 <a href="History.jsp" style="color:white; margin-top:20px;" class="btn_1">Check History</a>
               </form>

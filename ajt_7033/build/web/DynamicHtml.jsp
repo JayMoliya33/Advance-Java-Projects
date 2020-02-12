@@ -45,17 +45,7 @@
         </style>
     </head>
     <body>
-        <%! int n;%>
-        <%
-        // if (request.getParameter("number") != null) {
-
-        if ((request.getParameter("Reset") != null)) {
-            n = 0;
-        } else {
-            n = Integer.parseInt(request.getParameter("number"));
-        }
-
-        %>
+        
 
         <%@include file="Header.jsp" %>
         <section class="breadcrumb breadcrumb_bg">
@@ -69,24 +59,25 @@
                                         <form action="DynamicHtml.jsp" method="post" role="form" class="contactForm" >
                                             <div class="form-group">
                                                 <label style="color:aqua; font-style:oblique; font-size:large;">Enter Number to generate Textboxes</label>
-                                                <input type="text" name="number" class="form-control" id="number" placeholder="Number" data-rule="minlen:4" autocomplete="off"/>
+                                                <input type="text" name="number" class="form-control" value="" placeholder="Number" autocomplete="off"/>
                                             </div>
                                             <div class="d-none d-lg-block" class="text-center">
-                                               <button type="submit" class="button" >Generate</button>
+                                               <input type="submit" name="generate" value="generate" class="button"/>
                                             <input type="submit" name="Reset" value="Reset" class="button"/>
                                             </div>
                                         </form>
                                     </div>
-
-<%
-        for (int i = 0; i < n; i++) {
-            
-%>
-<div class="form-group">
-    <input type="text" name="number" class="form-control" id="number" placeholder="Textboxes" data-rule="minlen:4" data-msg="Please enter at least 1 number" />
-</div>
-<%        }
-%>
+                                    <%! int n;%>
+                                <%
+                                if(request.getParameter("generate")!=null)
+                                {
+                                   n = Integer.parseInt(request.getParameter("number"));
+                                  for (int i = 0; i < n; i++)
+                                  {
+                                       out.println("<input type='text' name='number' class='form-control'  placeholder='Textboxes "+(i+1)+"' /> <br/>");
+                                  }
+                                }
+                                %>
                                 </div>
                             </div>
                         </div>

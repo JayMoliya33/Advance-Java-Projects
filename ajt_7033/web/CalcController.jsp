@@ -1,10 +1,11 @@
 <!doctype html>
+<%@page errorPage="error.jsp" contentType="text/html"%>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Advance Java Projects</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"  >
+        <title>Calculator</title>
         <link rel="icon" href="img/favicon.png">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -22,6 +23,20 @@
         <link rel="stylesheet" href="css/slick.css">
         <!-- style CSS -->
         <link rel="stylesheet" href="css/style.css">
+
+            <style>
+                .btn1{
+                    background-color: white;
+                 color: black;
+                 height:40px;
+                 width:70px;
+                    border: 2px solid #4CAF50;
+                    border-radius: 5px;
+                }
+                 .btn1:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;}
+            </style>
     </head>
 
     <body>
@@ -81,21 +96,21 @@
                                 <div class="form">
                                     <form action="CalcController.jsp" method="post" role="form" class="contactForm" autocomplete="off">
                                         <div class="form-group">
-                                            <input type="text" name="n1" class="form-control" value="" id="number" placeholder="Enter Number 1" data-rule="minlen:4" data-msg="Please enter at least 1 number" />
+                                            <input type="text" name="n1" class="form-control" value="" id="number" placeholder="Enter Number 1"/>
                                             <div class="validation"></div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="n2" class="form-control" value="" id="number" placeholder="Enter Number 2" data-rule="minlen:4" data-msg="Please enter at least 1 number"/>
+                                            <input type="text" name="n2" class="form-control" value="" id="number" placeholder="Enter Number 2" />
                                             <div class="validation"></div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="" value="<%= result%>" class="form-control" value="" placeholder="Enter Number 1" data-rule="minlen:4" data-msg="Please enter at least 1 number" required="required"/>
+                                            <input type="text" name="" value="<%= result%>" class="form-control" value="" placeholder="Enter Number 1" required="required"/>
                                             <div class="validation"></div>
                                         </div>
-                                        <input type="submit" name="operation" value="+"/>
-                                        <input type="submit" name="operation" value="*"/>
-                                        <input type="submit" name="operation" value="-"/>
-                                        <input type="submit" name="operation" value="/"/>
+                                        <input type="submit" name="operation" value="+" class="btn1"/>
+                                        <input type="submit" name="operation" value="*" class="btn1"/>
+                                        <input type="submit" name="operation" value="-" class="btn1"/>
+                                        <input type="submit" name="operation" value="/" class="btn1"/>
                                     </form>
                                 </div>
                             </div>
@@ -109,7 +124,5 @@
     <!-- footer part start-->
         <%@include file="Footer.jsp" %>
         <!-- footer part end-->
-
     </body>
-
 </html>

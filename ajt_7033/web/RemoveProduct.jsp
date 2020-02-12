@@ -1,9 +1,9 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,com.vvp.web.Product"%>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Dynamic Html</title>
+        <title>Remove Product</title>
         <link rel="icon" href="img/favicon.png">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -45,8 +45,6 @@
         </style>
     </head>
     <body>
-        
-
         <%@include file="Header.jsp" %>
         <section class="breadcrumb breadcrumb_bg">
             <div class="container">
@@ -55,29 +53,21 @@
                         <div class="breadcrumb_iner text-center">
                             <div class="breadcrumb_iner_item">
                                 <div class="breadcrumb_iner_item">
-                                    <div class="form">
-                                        <form action="DynamicHtml.jsp" method="post" role="form" class="contactForm" >
-                                            <div class="form-group">
-                                                <label style="color:aqua; font-style:oblique; font-size:large;">Enter Number to generate Textboxes</label>
-                                                <input type="text" name="number" class="form-control" value="" placeholder="Number" autocomplete="off"/>
-                                            </div>
-                                            <div class="d-none d-lg-block" class="text-center">
-                                               <input type="submit" name="generate" value="generate" class="button"/>
-                                            <input type="submit" name="Reset" value="Reset" class="button"/>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <%! int n;%>
-                                <%
-                                if(request.getParameter("generate")!=null)
-                                {
-                                   n = Integer.parseInt(request.getParameter("number"));
-                                  for (int i = 0; i < n; i++)
-                                  {
-                                       out.println("<input type='text' name='number' class='form-control'  placeholder='Textboxes "+(i+1)+"' /> <br/>");
-                                  }
-                                }
-                                %>
+             <%
+            HashMap <Integer,Product> products=(HashMap <Integer,Product>)application.getAttribute("products");
+            HashMap <Integer,Integer> cartItems=(HashMap <Integer,Integer>)session.getAttribute("cart");
+            String op=request.getParameter("operation");
+            int pid=Integer.parseInt(request.getParameter("pid"));
+                                       
+                                       if(op.equals("Remove"))
+            {
+                out.println("<h3 style='color:aqua;'>");
+                out.println("Items removed form cart Sucessfully!!");
+                out.println("</h3>");
+                cartItems.remove(pid);
+                session.setAttribute("cart", cartItems);
+            }%>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>
@@ -85,9 +75,7 @@
                 </div>
             </div>
         </section>
-        
-
-        
 <%@include file="Footer.jsp" %>
     </body>
 </html>
+

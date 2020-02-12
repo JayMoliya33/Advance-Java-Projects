@@ -1,9 +1,15 @@
+<%-- 
+    Document   : Login
+    Created on : 10 Feb, 2020, 4:16:45 PM
+    Author     : Jay Moliya
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Dynamic Html</title>
+        <title>Login</title>
         <link rel="icon" href="img/favicon.png">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -45,7 +51,6 @@
         </style>
     </head>
     <body>
-        
 
         <%@include file="Header.jsp" %>
         <section class="breadcrumb breadcrumb_bg">
@@ -56,28 +61,32 @@
                             <div class="breadcrumb_iner_item">
                                 <div class="breadcrumb_iner_item">
                                     <div class="form">
-                                        <form action="DynamicHtml.jsp" method="post" role="form" class="contactForm" >
+                                        <form action="" method="post" role="form" class="contactForm" >
                                             <div class="form-group">
-                                                <label style="color:aqua; font-style:oblique; font-size:large;">Enter Number to generate Textboxes</label>
-                                                <input type="text" name="number" class="form-control" value="" placeholder="Number" autocomplete="off"/>
+                                           <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="off"/>
                                             </div>
-                                            <div class="d-none d-lg-block" class="text-center">
-                                               <input type="submit" name="generate" value="generate" class="button"/>
-                                            <input type="submit" name="Reset" value="Reset" class="button"/>
-                                            </div>
+                                             <div class="form-group">
+                                             <input type="password" name="pwd" class="form-control" placeholder="Password" autocomplete="off"/></div>
+                                            <input type="submit" name="login" value="Login" class="button"/>
                                         </form>
                                     </div>
-                                    <%! int n;%>
-                                <%
-                                if(request.getParameter("generate")!=null)
-                                {
-                                   n = Integer.parseInt(request.getParameter("number"));
-                                  for (int i = 0; i < n; i++)
-                                  {
-                                       out.println("<input type='text' name='number' class='form-control'  placeholder='Textboxes "+(i+1)+"' /> <br/>");
-                                  }
-                                }
-                                %>
+                                    <%
+                                    if(request.getParameter("login")!=null)
+                                    {
+                                        String uname = request.getParameter("username");
+                                       String pwd =  request.getParameter("pwd");
+                                        out.println("<script>");
+                                        if(uname.equals("admin") && pwd.equals("admin"))
+                                        {
+                                            out.println("alert('Login Sucessfully!!')");
+                                        }
+                                        else
+                                        {
+                                            out.println("alert('Invalid Username or Password!!')");
+                                        }
+                                        out.println("</script>");
+                                    }
+                                     %>
                                 </div>
                             </div>
                         </div>
@@ -85,9 +94,10 @@
                 </div>
             </div>
         </section>
-        
 
-        
+
+
 <%@include file="Footer.jsp" %>
     </body>
 </html>
+

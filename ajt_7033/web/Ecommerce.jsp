@@ -3,13 +3,13 @@
     Created on : 2 Feb, 2020, 7:24:05 PM
     Author     : Jay Moliya
 --%>
-<%@page import="java.util.*" %>
+<%@page import="java.util.*,com.vvp.web.Product" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Advance Java Projects</title>
+    <title>Ecommerce</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -33,37 +33,41 @@
                 background-color: white;
                  color: black;
                     border: 2px solid #4CAF50;
-                    border-radius: 12px;
-                
+                    border-radius: 12px;                
             }
             .button:hover {
   background-color: #4CAF50; /* Green */
   color: white;
 }
+        .effect{
+            border: 2px solid #4CAF50;
+                    border-radius: 15px;
+            }
+         .effect:hover{
+            -moz-box-shadow: 0 0 10px #ccc;
+      -webkit-box-shadow: 0 0 10px #ccc;
+      box-shadow: 0 0 10px #ccc;
+             }
+             .inputtext{width:87%;height:calc(1.5em + .75rem + 2px);padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:#495057;background-color:#fff;border:1px solid #ced4da;border-radius:.25rem;}
         </style>
     </head>
     <body>
-        <%! int pid,qty;
-        %>
+      <%
+         // Product(int pid, String name, String description, Double price,int stock)
+      Product p[] = new Product[3];
+        p[0] = new Product(1,"Cricket Bat","Virat Kohli Popular MRF",2000.0,10);
+        p[1] = new Product(2, "Cricket Balls", "Cricket Leather Ball",300.0,20);
+        p[2] = new Product(3, "Cricket Kit", "SG Full Cricket Kit with Bag and with Slax ...",6550.0,5);
 
-        <%
-       
-        if(request.getParameter("cart")!=null)
-            {
-                HashMap<Integer,Integer> cartitem = null;
-                 qty= Integer.parseInt(request.getParameter("qty"));
-                 pid= Integer.parseInt(request.getParameter("pid"));
-                   cartitem = (HashMap<Integer,Integer>)application.getAttribute("cart");
-                if(cartitem==null)
-                {
-                    cartitem= new HashMap<Integer,Integer>();
-                }
-                cartitem.put(new Integer(pid), new Integer(qty));
-                application.setAttribute("cart",cartitem);
-
-
+        for (int i = 0; i < p.length; i++) {
+            HashMap<Integer, Product> products = (HashMap<Integer, Product>) application.getAttribute("products");
+            if (products == null) {
+                products = new HashMap<Integer, Product>();
             }
-       %>
+            products.put(p[i].pid, p[i]);
+            application.setAttribute("products", products);
+        }
+         %>
 
         <%@include file="Header.jsp" %>
         <section class="breadcrumb breadcrumb_bg">
@@ -72,23 +76,77 @@
                 <div class="col-lg-3">
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
-                                   <div class="form">
-              <form action="AddToCart.jsp" method="post" role="form" class="contactForm">
+               <div class="form" style="margin-top:120px;">
+              <form action="AddToCart.jsp" method="post" role="form" class="effect">
                 <div class="form-group">
-                  <img src="img/tshirt.jpg" style="height:100px;" alt="T-shirt"/>
+                  <img src="img/bat.jpg" style="height:100px;margin-top:10px;" alt="T-shirt"/>
                 </div>
                 <div class="form-group">
-                    <input type="number" value="1" name="qty" class="form-control" id="number" data-rule="minlen:4"/>
+                    <p>Willow Short Handle Bat
+                      Virat Kohli Special Popular MRF</p>
+                    <p>Price: 2000 INR</p>
+                </div>
+                <div class="form-group">
+                    <input type="number" value="1" name="qty" class="inputtext"/>
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                    <p>WWE T-shirt</p>
-                    <p>The Shield WWE T-shirt</p>
-                    <p>450 INR</p>
+                   <input type="hidden" name="pid" value="1"/>
+                    <input type="submit" name="addtocart" value="Add to Cart" class="button"/>
+                </div>
+              </form>
+            </div>
+           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+               <div class="form" style="margin-top:120px">
+              <form action="AddToCart.jsp" method="post" role="form" class="effect">
+                <div class="form-group">
+                  <img src="img/ball.jpg" style="height:100px;margin-top:10px;" alt="T-shirt" />
+                </div>
+                
+                <div class="form-group">
+                    <p>Forever Online Shopping 1 Cricket Leather Ball</p>
+                    <p>Price: 150 INR</p>
                 </div>
                 <div class="form-group">
-                   <input type="hidden" name="pid" value=""/>
-                    <input type="submit" name="cart" value="Add to Cart" class="button"/>
+                    <input type="number" value="1" name="qty" class="inputtext" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                   <input type="hidden" name="pid" value="2"/>
+                    <input type="submit" name="addtocart" value="Add to Cart" class="button"/>
+                </div>
+              </form>
+            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+               <div class="form" style="margin-top:120px;">
+              <form action="AddToCart.jsp" method="post" role="form" class="effect">
+                <div class="form-group">
+                  <img src="img/kit.jpg" style="height:100px;margin-top:10px;" alt="T-shirt" />
+                </div>
+
+                <div class="form-group">
+                    <p>SG Full Cricket Kit with Bag and with Slax ...</p>
+                    <p>Price: 6550 INR</p>
+                </div>
+                <div class="form-group">
+                    <input type="number" value="1" name="qty" class="inputtext" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                   <input type="hidden" name="pid" value="3"/>
+                    <input type="submit" name="addtocart" value="Add to Cart" class="button"/>
                 </div>
               </form>
             </div>

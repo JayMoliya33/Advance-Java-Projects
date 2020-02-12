@@ -1,10 +1,10 @@
-<%@page import="java.util.*" %>
+<%@page import="java.util.*,com.vvp.web.Product" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Advance Java Projects</title>
+    <title>Add to Cart</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -38,26 +38,24 @@
         </style>
     </head>
     <body>
-        <%! int pid,qty;
-        %>
 
         <%
-         qty = Integer.parseInt(request.getParameter("qty"));
-         pid = Integer.parseInt(request.getParameter("pid"));
-        HashMap<Integer,Integer> cartitem = null;
-        if(session.getAttribute("cart")!=null)
-        {
-            cartitem = (HashMap<Integer,Integer>) session.getAttribute("cart");
-        }
-        else
-        {
-            cartitem = new HashMap<Integer,Integer>();
-            cartitem.put(new Integer(pid),new Integer(qty));
-            session.setAttribute("cart", cartitem);
+        if(request.getParameter("addtocart")!=null)
+            {
+                HashMap<Integer,Integer> cartitem = null;
+                int qty= Integer.parseInt(request.getParameter("qty"));
+                 int pid= Integer.parseInt(request.getParameter("pid"));
+                   cartitem = (HashMap<Integer,Integer>)session.getAttribute("cart");
+                if(cartitem==null)
+                {
+                    cartitem= new HashMap<Integer,Integer>();
+                }
+                cartitem.put(pid ,qty);
+                session.setAttribute("cart",cartitem);
 
-        }
+            }
        %>
-
+       
         <%@include file="Header.jsp" %>
         <section class="breadcrumb breadcrumb_bg">
         <div class="container">
@@ -65,26 +63,8 @@
                 <div class="col-lg-3">
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
-                                   <div class="form">
-              <form action="Ecommerce.jsp" method="post" role="form" class="contactForm">
-                <div class="form-group">
-                  <img src="img/tshirt.jpg" style="height:100px;" alt="T-shirt"/>
-                </div>
-                <div class="form-group">
-                    <input type="number" value="1" name="qty" class="form-control" id="number" data-rule="minlen:4"/>
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                    <p>WWE T-shirt</p>
-                    <p>The Shield WWE T-shirt</p>
-                    <p>450 INR</p>
-                </div>
-                <div class="form-group">
-                   <input type="hidden" name="pid" value=""/>
-                    <input type="submit" name="cart" value="Add to Cart" class="button"/>
-                </div>
-              </form>
-            </div>
+                             <h4 style="color:aqua;">Items Added to cart Sucessfully!</h4>
+                             <h4><a href="Ecommerce.jsp">Buy More Items.....</a></h4>
                         </div>
                     </div>
                 </div>

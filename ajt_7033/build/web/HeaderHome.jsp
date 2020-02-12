@@ -13,15 +13,16 @@
                           aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>
                       </button>
+                      
 
                       <div class="collapse navbar-collapse main-menu-item justify-content-end"
                           id="navbarSupportedContent">
                           <ul class="navbar-nav align-items-center">
                               <li class="nav-item active">
-                                  <a class="nav-link" href="index.jsp">Home</a>
+                                  <a class="nav-link" style="color:red;" href="index.jsp">Home</a>
                               </li>
                               <li class="nav-item dropdown">
-                                  <a class="nav-link dropdown-toggle" href="Assignment_1.jsp" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <a style="color:red;" class="nav-link dropdown-toggle" href="Assignment_1.jsp" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       Assignments 1
                                   </a>
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -32,18 +33,19 @@
                                   </div>
                               </li>
 							  <li class="nav-item dropdown">
-                                  <a class="nav-link dropdown-toggle" href="Assignment_2.jsp" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <a style="color:red;" class="nav-link dropdown-toggle" href="Assignment_2.jsp" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       Assignments 2
                                   </a>
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                      <a class="dropdown-item" href="Ecommerce.jsp">Ecommerce </a>
                                       <a class="dropdown-item" href="CalcController.jsp">Calculator </a>
+                                      <a class="dropdown-item" href="CtoFConvertor.jsp">Temprature Controller</a>
 								     <a class="dropdown-item" href="DynamicHtml.jsp">Dynamic Html</a>
-									   <a class="dropdown-item" href="CtoFConvertor.jsp">temprature Controller</a>
+									   <a class="dropdown-item" href="Login.jsp">Login</a>
                                   </div>
                               </li>
                               <li class="d-none d-lg-block">
-                                  <a class="btn_1" href="#">Get a Quote</a>
+                                  <a class="btn_1" href="Checkout.jsp">Checkout</a>
                               </li>
                           </ul>
                       </div>

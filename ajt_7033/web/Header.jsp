@@ -39,12 +39,13 @@
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                      <a class="dropdown-item" href="Ecommerce.jsp">Ecommerce </a>
                                       <a class="dropdown-item" href="CalcController.jsp">Calculator </a>
+                                      <a class="dropdown-item" href="CtoFConvertor.jsp">Temprature Controller</a>
 								     <a class="dropdown-item" href="DynamicHtml.jsp">Dynamic Html</a>
-									   <a class="dropdown-item" href="CtoFConvertor.jsp">Temprature Controller</a>
+                                     <a class="dropdown-item" href="Login.jsp">Login</a>
                                   </div>
                               </li>
                               <li class="d-none d-lg-block">
-                                  <a class="btn_1" href="#">Get a Quote</a>
+                                  <a class="btn_1" href="Checkout.jsp">Checkout</a>
                               </li>
                           </ul>
                       </div>

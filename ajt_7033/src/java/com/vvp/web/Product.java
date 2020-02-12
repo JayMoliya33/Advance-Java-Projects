@@ -3,18 +3,20 @@ package com.vvp.web;
 
 public class Product 
 {
-     int pid;
-   String name,description;
-   Double price;
+     public int pid;
+   public String name,description;
+   public Double price;
+   public int stock;
 
     public Product() {
     }
 
-    public Product(int pid, String name, String description, Double price) {
+    public Product(int pid, String name, String description, Double price,int stock) {
         this.pid = pid;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.stock=stock;
     }
 
     public String getDescription() {
@@ -48,6 +50,16 @@ public class Product
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+
 
 
 
