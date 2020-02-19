@@ -56,9 +56,10 @@
                     out.println("</tr>");
                     for (Integer i : cartitems.keySet()) {
                         Product p = prd.get(i);
-                        finalTotal += p.getPrice() * cartitems.get(i);
-                        out.println("<tr><td>" + (srno++) + "</td><td>" + p.getName() + "</td><td>" + cartitems.get(i) + "</td><td>" + p.getPrice() + "</td>");
-                        out.println("<td><form action='RemoveProduct.jsp' method='get'> <input type='hidden' name='pid' value='" + p.getPid() + "'> <input type='submit' value='Remove' class='btn btn-danger' name='operation'/></form> </td><td> <form action='Ecommerce.jsp'> <input type='hidden' name='pid' value='" + p.getPid() + "'> <input type='submit' class='btn btn-success' value='Buy' name='operation'/></form></td></tr>");
+                        finalTotal += p.getPrice() * cartitems.get(i); // productprice*quantity
+                        out.println("<tr><td>" + (srno++) + "</td><td>" + p.getName() + "</td> <td>" + cartitems.get(i) + "</td><td>" + p.getPrice() + "</td>");
+                        out.println("<td><form action='RemoveProduct.jsp' method='get'> <input type='hidden' name='pid' value='" +p.getPid() + "'> <input type='submit' value='Remove' class='btn btn-danger' name='operation'/></form> </td>"
+                                +"<td> <form action='Ecommerce.jsp'> <input type='hidden' name='pid' value='" + p.getPid() + "'> <input type='submit' class='btn btn-success' value='Buy' name='operation'/></form> </td> </tr>");
                     }
                     out.println("</table>");
                     out.println("<h3 style='color:aqua;'>Total Payable : " + finalTotal + " Rs.</h3>");

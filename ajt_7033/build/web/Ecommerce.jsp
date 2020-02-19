@@ -96,10 +96,10 @@
                 </div>
               </form>
             </div>
-           
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3">
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
@@ -155,7 +155,6 @@
                 </div>
             </div>
         </div>
-
     </section>
         <%@include file="Footer.jsp" %>
 

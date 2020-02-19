@@ -57,9 +57,8 @@
             HashMap <Integer,Product> products=(HashMap <Integer,Product>)application.getAttribute("products");
             HashMap <Integer,Integer> cartItems=(HashMap <Integer,Integer>)session.getAttribute("cart");
             String op=request.getParameter("operation");
-            int pid=Integer.parseInt(request.getParameter("pid"));
-                                       
-                                       if(op.equals("Remove"))
+            int pid=Integer.parseInt(request.getParameter("pid"));         
+            if(op.equals("Remove"))
             {
                 out.println("<h3 style='color:aqua;'>");
                 out.println("Items removed form cart Sucessfully!!");

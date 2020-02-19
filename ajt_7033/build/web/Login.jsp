@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page errorPage="error.jsp" %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -71,6 +72,7 @@
                                         </form>
                                     </div>
                                     <%
+                                    try{
                                     if(request.getParameter("login")!=null)
                                     {
                                         String uname = request.getParameter("username");
@@ -86,6 +88,11 @@
                                         }
                                         out.println("</script>");
                                     }
+                                    }
+                                    catch(Exception e)
+                                    {
+                                        e.printStackTrace();
+                                    }
                                      %>
                                 </div>
                             </div>
@@ -94,8 +101,6 @@
                 </div>
             </div>
         </section>
-
-
 
 <%@include file="Footer.jsp" %>
     </body>

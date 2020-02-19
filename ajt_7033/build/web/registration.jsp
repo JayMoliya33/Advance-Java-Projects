@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Advance Java Projects</title>
+    <title>Registration</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -37,7 +37,7 @@
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
 
-                            <div class="form">
+                            <div class="form" style="margin-top:60px;">
                                 <form action="RegistrationServlet.do" method="post" role="form" class="contactForm" autocomplete="off">
 
                                     <div class="form-group">
@@ -65,11 +65,10 @@
                                         <div class="validation"></div>
                                     </div>
 
-                                    <div class="form-group" style="margin-right:260px">
+                                    <div class="form-group" style="margin-right:160px">
                                         <b>Please select your gender:</b>
                                         <input id="M" type="radio" name="gender" value="male"><label for="M"><font color="white"/> Male </label>
                                         <input id="F" type="radio" name="gender" value="female"><label for="F"><font color="white"/> Female </label>
-
                                     </div>
 
                                     <div class="text-center"><button type="submit">Submit</button></div>

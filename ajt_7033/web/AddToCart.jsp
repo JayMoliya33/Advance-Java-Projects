@@ -42,11 +42,10 @@
         <%
         if(request.getParameter("addtocart")!=null)
             {
-                HashMap<Integer,Integer> cartitem = null;
-                int qty= Integer.parseInt(request.getParameter("qty"));
+                 int qty= Integer.parseInt(request.getParameter("qty"));
                  int pid= Integer.parseInt(request.getParameter("pid"));
-                   cartitem = (HashMap<Integer,Integer>)session.getAttribute("cart");
-                if(cartitem==null)
+                HashMap<Integer,Integer> cartitem = (HashMap<Integer,Integer>)session.getAttribute("cart");;
+                 if(cartitem==null)
                 {
                     cartitem= new HashMap<Integer,Integer>();
                 }
