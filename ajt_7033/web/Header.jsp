@@ -45,7 +45,7 @@
                                   </div>
                               </li>
                               <li class="nav-item dropdown">
-                                  <a style="color:red;" class="nav-link dropdown-toggle" href="Assignment_2.jsp" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <a  class="nav-link dropdown-toggle" href="Assignment_2.jsp" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       Assignments 3
                                   </a>
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -53,8 +53,20 @@
                                       <a class="dropdown-item" href="Product_jdbc.jsp">Product </a>
                                   </div>
                               </li>
+                               <li class="nav-item dropdown">
+                                  <a  class="nav-link dropdown-toggle" href="Assignment_2.jsp" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Assignments 4
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="dropdown-item" href="Ecommerce2.jsp">Dynamic Ecommerce</a>
+                                      <a class="dropdown-item" href="Product_jdbc.jsp">Product </a>
+                                  </div>
+                              </li>
                               <li class="d-none d-lg-block">
                                   <a class="btn_1" href="Checkout.jsp">Checkout</a>
+                              </li>
+                               <li class="d-none d-lg-block">
+                                  <a class="btn_1" href="Checkout.jsp">User</a>
                               </li>
                           </ul>
                       </div>

@@ -23,25 +23,25 @@
         <link rel="stylesheet" href="css/style.css">
         <style>
             .button {
-  padding: 10px 15px;
-  font-size: 14px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
+                padding: 10px 15px;
+                font-size: 14px;
+                text-align: center;
+                cursor: pointer;
+                outline: none;
+                color: #fff;
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 15px;
 
-}
+            }
 
-.button:hover {background-color: #3e22e1}
+            .button:hover {background-color: #3e22e1}
 
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
+            .button:active {
+                background-color: #3e8e41;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
         </style>
     </head>
     <body>
@@ -57,41 +57,44 @@
                                     <div class="form">
                                         <form action="" method="post" role="form" class="contactForm" >
                                             <div class="form-group">
-                                           <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="off" required="required"/>
+                                                <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="off" required="required"/>
                                             </div>
-                                             <div class="form-group">
-                                             <input type="password" name="pwd" class="form-control" placeholder="Password" autocomplete="off" required="required"/></div>
+                                            <div class="form-group">
+                                            <input type="password" name="pwd" class="form-control" placeholder="Password" autocomplete="off" required="required"/></div>
                                             <input type="submit" name="login" value="Login" class="button"/>
                                         </form>
                                         <div class="form-group">
                                         <p style="color:aqua;">New User? <a href="Registration_3.jsp">Registration</a></p></div>
                                     </div>
                                     <%
-                                    if(request.getParameter("login")!=null)
-                                    {
-                                        try{
-                                        String uname = request.getParameter("username");
-                                       String pwd =  request.getParameter("pwd");
-                                       Class.forName("com.mysql.jdbc.Driver");
-                                       Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration","root","");
-                                       PreparedStatement pstmt = con.prepareStatement("select * from user where name=? and password=? ");
-                                       pstmt.setString(1, uname);
-                                       pstmt.setString(2, pwd);
-                                       ResultSet rs = pstmt.executeQuery();                                      
-                                       out.println("<script>");
-                                       if(rs.next()){
-                                          out.println("alert('Login Sucessfully!!')");}
-                                        else
-                                        {
-                                            out.println("alert('Invalid Username or Password!!')");
-                                        }
-                                        out.println("</script>");
-                                       }catch(Exception e)
-                                               {
-                                           e.printStackTrace();
-                                       }
-                                    }
-                                     %>
+        if (request.getParameter("login") != null) {
+            try {
+                int flag = 0;
+                String uname = request.getParameter("username");
+                String pwd = request.getParameter("pwd");
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root", "");
+                PreparedStatement pstmt = con.prepareStatement("select * from user where name=? and password=? ");
+                pstmt.setString(1, uname);
+                pstmt.setString(2, pwd);
+                ResultSet rs = pstmt.executeQuery();
+                out.println("<script>");
+                if (rs.next()) {
+                    out.println("alert('Login Sucessfully!!')");
+                    flag=1;
+                } else {
+                    out.println("alert('Invalid Username or Password!!')");
+                }
+                if(flag==1)
+                {
+                    session.setAttribute("user",uname);
+                }
+                out.println("</script>");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+                                    %>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +103,7 @@
             </div>
         </section>
 
-<%@include file="Footer.jsp" %>
+        <%@include file="Footer.jsp" %>
     </body>
 </html>
 

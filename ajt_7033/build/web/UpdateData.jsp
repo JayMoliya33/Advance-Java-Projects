@@ -64,17 +64,13 @@
                                             ResultSet rs = stmt.executeQuery(sql);
                                             while(rs.next())
                                             {
-                                   %>
-                
+                                   %>                
                                      <div class="form">
                                         <form action="Update.jsp" method="post" role="form" class="contactForm">
                                             <div class="form-group">
                                                 <input type="hidden" name="pid" value="<%=rs.getInt(1)%>"/>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="pid" value="<%=rs.getInt(1)%>" class="form-control" placeholder="Enter Product Name" autocomplete="off"/>
-                                            </div>
-                                             <div class="form-group">
                                                  <input type="text" name="pname" value="<%= rs.getString(2)%>" class="form-control" placeholder="Enter Product Name" autocomplete="off"/>
                                             </div>
                                              <div class="form-group">

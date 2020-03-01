@@ -3,6 +3,7 @@
     Created on : 2 Feb, 2020, 7:24:05 PM
     Author     : Jay Moliya
 --%>
+<%@page import="java.sql.*" %>
 <%@page import="java.util.*,com.vvp.web.Product" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
@@ -67,9 +68,10 @@
             products.put(p[i].pid, p[i]);
             application.setAttribute("products", products);
         }
-         %>
+        %>
 
         <%@include file="Header.jsp" %>
+
         <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row">
@@ -108,8 +110,7 @@
                 <div class="form-group">
                   <img src="img/ball.jpg" style="height:100px;margin-top:10px;" alt="T-shirt" />
                 </div>
-                
-                <div class="form-group">
+                 <div class="form-group">
                     <p>Forever Online Shopping 1 Cricket Leather Ball</p>
                     <p>Price: 150 INR</p>
                 </div>
@@ -121,12 +122,12 @@
                    <input type="hidden" name="pid" value="2"/>
                     <input type="submit" name="addtocart" value="Add to Cart" class="button"/>
                 </div>
+                
               </form>
             </div>
-                        </div>
+                   </div>
                     </div>
                 </div>
-
                 <div class="col-lg-3">
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
@@ -155,6 +156,7 @@
                 </div>
             </div>
         </div>
+       
     </section>
         <%@include file="Footer.jsp" %>
 

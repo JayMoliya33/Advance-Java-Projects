@@ -48,6 +48,22 @@
     <body>
 
         <%@include file="Header.jsp" %>
+        
+     <%--   <section class="breadcrumb breadcrumb_bg">
+            <div class="container">
+                <form action="" method="post">
+                    <h3>Search Products by . . .</h3>
+                    <select name="searchby" class="form-control col-lg-5">
+                        <option value="pname">Product name</option>
+                        <option value="pdesc">Product description</option>
+                        <option value="stock">Product stock</option>
+                        <option value="price">Product price</option>
+                    </select>
+                    <input type="text" name="searchvalue" class="form-control col-lg-3" placeholder="enter the search value"/><br/>
+                    <input type="submit" name="search" value="Search" class="button"/>
+                </form>
+                </div>
+            </section> --%>
 
         <section class="breadcrumb breadcrumb_bg">
             <div class="container">
@@ -55,50 +71,47 @@
                     <div class="col-lg-12">
                         <div class="breadcrumb_iner text-center">
                             <div class="breadcrumb_iner_item">
-                                <div class="breadcrumb_iner_item">                        
-                                    <table border="1" class="table table-hover table-dark">
-                                        <tr>
-                                            <th>Product Id</th>
-                                            <th>Product Name</th>
-                                            <th>Stock</th>
-                                            <th>Price</th>
-                                            <th>Description</th>
-                                            <th>Operation</th>
-                                            <th>Operation</th>
-                                        </tr>
-
-                                    <%                                           
-                                            Class.forName("com.mysql.jdbc.Driver");
-                                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/productdata_jdbc", "root", "");
-                                            Statement stmt = con.createStatement();
-                                            ResultSet rs = stmt.executeQuery("Select * from products");
-                                            while(rs.next())
-                                            {
-                                   %>
-                                              <tr>
-                                               <td><%= rs.getInt(1) %></td>
-                                               <td><%= rs.getString(2)%></td>
-                                               <td><%= rs.getInt(3)%></td>
-                                               <td><%= rs.getFloat(4)%></td>
-                                               <td><%= rs.getString(5)%></td>
-                                               <td><a href="UpdateData.jsp?pid=<%= rs.getInt(1)%>">Update</a></td>
-                                               <td><a href="DeleteData.jsp?pid=<%= rs.getInt(1)%>">Delete</a></td>
-                                               </tr>
-                                       <%
-                                             }
-                                                stmt.close();
-                                                con.close();
-                                        %>       
-                                    </table>
-
-   
+                                <div class="breadcrumb_iner_item">                    
+                                        <table border="1" class="table table-hover table-dark">
+                                            <tr>
+                                                <th>Product Id</th>
+                                                <th>Product Name</th>
+                                                <th>Stock</th>
+                                                <th>Price</th>
+                                                <th>Description</th>
+                                                <th>Operation</th>
+                                                 <th>Operation</th>
+                                            </tr>
+                                        <%
+                                                Class.forName("com.mysql.jdbc.Driver");
+                                                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/productdata_jdbc", "root", "");
+                                                Statement stmt = con.createStatement();
+                                                ResultSet rs = stmt.executeQuery("Select * from products");
+                                                while(rs.next())
+                                                {
+                                       %>
+                                                  <tr>
+                                                   <td><%= rs.getInt(1) %></td>
+                                                   <td><%= rs.getString(2)%></td>
+                                                   <td><%= rs.getInt(3)%></td>
+                                                   <td><%= rs.getFloat(4)%></td>
+                                                   <td><%= rs.getString(5)%></td>
+                                                   <td><a href="UpdateData.jsp?pid=<%= rs.getInt(1)%>">Update</a></td>
+                                                   <td><a href="DeleteData.jsp?pid=<%= rs.getInt(1)%>">Delete</a></td>
+                                                   </tr>
+                                           <%
+                                                 }
+                                                    stmt.close();
+                                                    con.close();
+                                            %>
+                                        </table>
                                     </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>        
 
 <%@include file="Footer.jsp" %>
     </body>

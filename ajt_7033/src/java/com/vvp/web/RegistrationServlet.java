@@ -147,9 +147,7 @@ public class RegistrationServlet extends HttpServlet
                 {
                     out.println("Invalid Registration");
                     break;
-                }
-              
-
+                }           
             }
             if(i==f.length)
                 out.println("Registration Sucessfully");

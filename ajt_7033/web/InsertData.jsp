@@ -86,7 +86,8 @@
                                             int rows = stmt.executeUpdate("INSERT INTO products(pid,pname,stock,price,description)values(NULL,'" + pname + "','" + stock + "','" + price + "','" + desc + "')");
                                             out.println("<script>");
                                             out.println("alert('Data Added Sucessfully!!')");
-                                            out.println("</script>");
+           
+                                                                                out.println("</script>");
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }

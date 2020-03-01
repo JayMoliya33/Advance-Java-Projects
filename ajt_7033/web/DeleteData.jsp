@@ -69,9 +69,7 @@
                                             {
                                                 out.println("Not able to delete data");
                                             }                                            
-                                     %>
-
-                                    
+                                     %>                                    
                                     </div>
                             </div>
                         </div>

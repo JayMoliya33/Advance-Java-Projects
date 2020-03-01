@@ -55,7 +55,6 @@
                         <div class="breadcrumb_iner text-center">
                             <div class="breadcrumb_iner_item">
                                 <div class="breadcrumb_iner_item">
-
                                     <%
                                      if(request.getParameter("update")!=null)
                                     {
@@ -63,10 +62,8 @@
                                         String pname = request.getParameter("pname");
                                         String stock = request.getParameter("stock");
                                         String price = request.getParameter("price");
-                                        String desc = request.getParameter("desc");
-                                      
-                                            if(pid!=null){
-                                                int productid = Integer.parseInt(pid);
+                                        String desc = request.getParameter("desc");                                      
+                                            if(pid!=null){                                                
                                             Class.forName("com.mysql.jdbc.Driver");
                                             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/productdata_jdbc", "root", "");
                                             String sql = "Update products set pid=?,pname=?,stock=?,price=?,description=? where pid='"+pid+"'";
@@ -78,14 +75,13 @@
                                             ps.setString(5,desc);
                                             int i = ps.executeUpdate();                                           
                                             if(i>0){
-                                                 out.println("<script>");
-                                                out.println("alert('Data Updated Sucessfully!!')");
-                                                out.println("</script>");                                            
+                                                 //out.println("<script>");
+                                                out.println("<h3 style='color:aqua;'>Data Updated Sucessfully!!</h3>");
+                                                 out.println("<a class='button' href='DisplayData.jsp' style='color:aqua;margin-top:40px;'>Display Data</a>");
+                                                //out.println("</script>");
                                             }
                                             else{
-                                                out.println("<script>");
-                                                out.println("alert('There Was a problem')");
-                                                out.println("</script>");
+                                                 out.println("<h3 style='color:aqua;'>There was a problem!!</h3>");
                                                 }                                           
                                            }                                       
                                                           }

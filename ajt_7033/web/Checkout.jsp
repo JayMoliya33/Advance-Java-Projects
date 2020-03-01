@@ -1,4 +1,4 @@
-<%@page errorPage="error.jsp" contentType="text/html" import="java.util.*,com.vvp.web.Product"%>
+<%@page contentType="text/html" import="java.util.*,com.vvp.web.Product"%>
 <html lang="en">
 <head>
     <!-- Required meta tags -->

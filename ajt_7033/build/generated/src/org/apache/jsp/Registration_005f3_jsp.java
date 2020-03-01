@@ -82,7 +82,6 @@ public final class Registration_005f3_jsp extends org.apache.jasper.runtime.Http
       out.write("    <!-- style CSS -->\n");
       out.write("    <link rel=\"stylesheet\" href=\"css/style.css\">\n");
       out.write("</head>\n");
-      out.write("\n");
       out.write("<body>\n");
       out.write("    <!--::header part start::-->\n");
       out.write("    ");
@@ -133,7 +132,7 @@ public final class Registration_005f3_jsp extends org.apache.jasper.runtime.Http
       out.write("                                  </div>\n");
       out.write("                              </li>\n");
       out.write("                              <li class=\"nav-item dropdown\">\n");
-      out.write("                                  <a style=\"color:red;\" class=\"nav-link dropdown-toggle\" href=\"Assignment_2.jsp\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
+      out.write("                                  <a  class=\"nav-link dropdown-toggle\" href=\"Assignment_2.jsp\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
       out.write("                                      Assignments 3\n");
       out.write("                                  </a>\n");
       out.write("                                  <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n");
@@ -141,6 +140,16 @@ public final class Registration_005f3_jsp extends org.apache.jasper.runtime.Http
       out.write("                                      <a class=\"dropdown-item\" href=\"Product_jdbc.jsp\">Product </a>\n");
       out.write("                                  </div>\n");
       out.write("                              </li>\n");
+      out.write("                               <li class=\"nav-item dropdown\">\n");
+      out.write("                                  <a  class=\"nav-link dropdown-toggle\" href=\"Assignment_2.jsp\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
+      out.write("                                      Assignments 4\n");
+      out.write("                                  </a>\n");
+      out.write("                                  <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n");
+      out.write("                                     <a class=\"dropdown-item\" href=\"Ecommerce2.jsp\">Dynamic Ecommerce</a>\n");
+      out.write("                                      <a class=\"dropdown-item\" href=\"Product_jdbc.jsp\">Product </a>\n");
+      out.write("                                  </div>\n");
+      out.write("                              </li>\n");
+      out.write("                              <li class=\"\n");
       out.write("                              <li class=\"d-none d-lg-block\">\n");
       out.write("                                  <a class=\"btn_1\" href=\"Checkout.jsp\">Checkout</a>\n");
       out.write("                              </li>\n");
@@ -158,15 +167,12 @@ public final class Registration_005f3_jsp extends org.apache.jasper.runtime.Http
       out.write("\n");
       out.write("    <!-- Header part end-->\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("    <!-- content start-->\n");
       out.write("        <section class=\"breadcrumb breadcrumb_bg\">\n");
       out.write("            <div class=\"container\">\n");
       out.write("                <div class=\"col-lg-6\">\n");
       out.write("                    <div class=\"breadcrumb_iner text-center\">\n");
       out.write("                        <div class=\"breadcrumb_iner_item\">\n");
-      out.write("\n");
       out.write("                            <div class=\"form\" style=\"margin-top:90px;\">\n");
       out.write("                                <form action=\"\" method=\"post\" role=\"form\" class=\"contactForm\" autocomplete=\"off\">\n");
       out.write("\n");
@@ -202,21 +208,22 @@ public final class Registration_005f3_jsp extends org.apache.jasper.runtime.Http
       out.write("\n");
       out.write("                                   <div class=\"form-group\" style=\"margin-right:160px\">\n");
       out.write("                                   <b>Hobbies: </b>\n");
-      out.write("                                   <input id=\"playing\" type=\"checkbox\" name=\"hobbies\" value=\"playing\"><label for=\"playing\"><font color=\"white\"/> playing</label>\n");
-      out.write("                                   <input id=\"reading\" type=\"checkbox\" name=\"hobbies\" value=\"reading\"><label for=\"reading\"><font color=\"white\"/>  reading</label>\n");
-      out.write("                                   <input id=\"traveling\" type=\"checkbox\" name=\"hobbies\" value=\"traveling\"><label for=\"traveling\"><font color=\"white\"/>  traveling <br></label>\n");
+      out.write("                                   <input id=\"playing\" type=\"checkbox\" name=\"hobbies\" value=\"playing\" checked=\"checked\"><label for=\"playing\"><font color=\"white\"/> playing</label>\n");
+      out.write("                                   <input id=\"reading\" type=\"checkbox\" name=\"hobbies\" value=\"reading\" checked=\"checked\"><label for=\"reading\"><font color=\"white\"/>  reading</label>\n");
+      out.write("                                   <input id=\"traveling\" type=\"checkbox\" name=\"hobbies\" value=\"traveling\" checked=\"checked\"><label for=\"traveling\"><font color=\"white\"/>  traveling <br></label>\n");
       out.write("                                   </div>\n");
       out.write("\n");
       out.write("                                    <div class=\"form-group\" style=\"margin-right:160px\">\n");
       out.write("                                        <b>Please select your gender:</b>\n");
-      out.write("                                        <input id=\"M\" type=\"radio\" name=\"gender\" value=\"male\"><label for=\"M\"><font color=\"white\"/> Male </label>\n");
+      out.write("                                        <input id=\"M\" type=\"radio\" name=\"gender\" value=\"male\" checked=\"checked\"><label for=\"M\"><font color=\"white\" /> Male </label>\n");
       out.write("                                        <input id=\"F\" type=\"radio\" name=\"gender\" value=\"female\"><label for=\"F\"><font color=\"white\"/> Female </label>\n");
       out.write("                                    </div>\n");
       out.write("\n");
       out.write("                                    <div class=\"text-center\"><button name=\"submit\" type=\"submit\" class=\"btn btn-success\">Submit</button></div>\n");
-      out.write("                                </form>\n");
-      out.write("                                \n");
-      out.write("                 ");
+      out.write("                                </form>                              \n");
+      out.write("                \n");
+      out.write("                            </div>\n");
+      out.write("                             ");
 
     if (request.getParameter("submit") != null) {
         String errorMessage = "";
@@ -325,21 +332,29 @@ public final class Registration_005f3_jsp extends org.apache.jasper.runtime.Http
             choosehobbies += hobbies[i] + ",";
         }
 
-        if (errorMessage.length()> 0) {
+        if (errorMessage.length()>0) {
               out.println(errorMessage);
-        } else {
-             Class.forName("com.mysql.jdbc.Driver");
+        }
+        else
+        {         Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration","root","");
                 Statement stmt = con.createStatement();
                 int row = stmt.executeUpdate("INSERT INTO user (name,password,cpwd,email,phno,address,hobbies,gender) "
                     + "values('" + username + "','" + pwd + "','" + cpwd + "','" + email + "','" + phno + "','" + address + "','" + choosehobbies + "','" + gender + "')");
-                   //out.println("'<br/>''<br/>'Thank you for register ! Please <a href='Login_3.jsp'>Login</a> to continue.");
-                response.sendRedirect("Login_3.jsp");
-   }
+
+               if(row>0){
+                   out.println("alert('Sucessfully')");}
+                  // out.println("Thank you for register ! Please <a href='Login_3.jsp'>Login</a> to continue.");}
+                else
+                    {
+
+                    }
+              //  response.sendRedirect("Login_3.jsp");
+        }
         }
 
       out.write("\n");
-      out.write("                            </div>\n");
+      out.write("\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
