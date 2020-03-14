@@ -55,8 +55,12 @@
                         <div class="breadcrumb_iner text-center">
                             <div class="breadcrumb_iner_item">
                                 <div class="breadcrumb_iner_item">
+                                    <%
+                                         if(session.getAttribute("admin")!=null)
+                                             {
+                                    %>
                                     <div class="form">
-                                        <form action="" method="post" role="form" class="contactForm" >
+                                        <form action="" method="post" role="form" class="contactForm" style="margin-top:70px;">
                                             <div class="form-group">
                                            <input type="text" name="pname" class="form-control" placeholder="Enter Product Name" autocomplete="off"/>
                                             </div>
@@ -69,29 +73,38 @@
                                             <div class="form-group">
                                            <input type="text" name="desc" class="form-control" placeholder="Enter Product Description" autocomplete="off"/>
                                             </div>
+                                             <div class="form-group">
+                                           <input type="file" name="image" class="form-control" autocomplete="off"/>
+                                            </div>
                                             <input type="submit" name="insert" value="InsertData" class="button"/>
                                         </form>
                                     </div>
-                                    <%                                    
-                                    if(request.getParameter("insert")!=null)
-                                    {
+                                    <%
+                                        if(request.getParameter("insert")!=null)
+                                        {
                                         String pname = request.getParameter("pname");
                                         String stock = request.getParameter("stock");
                                         String price = request.getParameter("price");
                                         String desc = request.getParameter("desc");
+                                        String image = request.getParameter("image");
                                         try {
                                             Class.forName("com.mysql.jdbc.Driver");
                                             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/productdata_jdbc", "root", "");
                                             Statement stmt = con.createStatement();
-                                            int rows = stmt.executeUpdate("INSERT INTO products(pid,pname,stock,price,description)values(NULL,'" + pname + "','" + stock + "','" + price + "','" + desc + "')");
+                                            int rows = stmt.executeUpdate("INSERT INTO products(pid,pname,stock,price,description,pimg)values(NULL,'" + pname + "','" + stock + "','" + price + "','" + desc + "','"+image+"')");
+                                            if(rows>0){
                                             out.println("<script>");
                                             out.println("alert('Data Added Sucessfully!!')");
-           
-                                                                                out.println("</script>");
+                                            out.println("</script>"); }
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
                                       }
+                                    }
+                                    else
+                                    {
+                                        response.sendRedirect("Login_Admin.jsp");
+                                    }
                                     %>                                 
                                      </div>
                             </div>

@@ -71,7 +71,10 @@
                     <div class="col-lg-12">
                         <div class="breadcrumb_iner text-center">
                             <div class="breadcrumb_iner_item">
-                                <div class="breadcrumb_iner_item">                    
+                                <div class="breadcrumb_iner_item">
+                                    <% if(session.getAttribute("admin")!=null)
+                                        {
+                                     %>
                                         <table border="1" class="table table-hover table-dark">
                                             <tr>
                                                 <th>Product Id</th>
@@ -103,6 +106,11 @@
                                                  }
                                                     stmt.close();
                                                     con.close();
+                                              }
+                                                else
+                                              {
+                                                  response.sendRedirect("Login_Admin.jsp");
+                                              }
                                             %>
                                         </table>
                                     </div>

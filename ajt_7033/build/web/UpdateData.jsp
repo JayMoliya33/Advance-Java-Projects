@@ -56,6 +56,7 @@
                             <div class="breadcrumb_iner_item">
                                 <div class="breadcrumb_iner_item">
                                      <%
+                                     if(session.getAttribute("admin")!=null){
                                             String pid = request.getParameter("pid");
                                             Class.forName("com.mysql.jdbc.Driver");
                                             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/productdata_jdbc", "root", "");
@@ -87,6 +88,11 @@
                                         <%
                                         }
                                         con.close();
+                                      }
+                                     else
+                                     {
+                                         response.sendRedirect("Login_Admin.jsp");
+                                     }
                                         %>
                                     </div>                                                   
                                     </div>

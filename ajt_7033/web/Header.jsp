@@ -1,7 +1,17 @@
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
+         <%
+                String username = "user" ;
+              if(session.getAttribute("user")!=null)
+                               {
+                                     username = session.getAttribute("user").toString();
+                                    // out.println("hello"+user);
+                               }
+         %>
 <header class="main_menu single_page_menu">
       <div class="container">
           <div class="row align-items-center">
@@ -53,6 +63,7 @@
                                       <a class="dropdown-item" href="Product_jdbc.jsp">Product </a>
                                   </div>
                               </li>
+                             
                                <li class="nav-item dropdown">
                                   <a  class="nav-link dropdown-toggle" href="Assignment_2.jsp" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       Assignments 4
@@ -61,13 +72,27 @@
                                      <a class="dropdown-item" href="Ecommerce2.jsp">Dynamic Ecommerce</a>
                                       <a class="dropdown-item" href="Product_jdbc.jsp">Product </a>
                                   </div>
-                              </li>
-                              <li class="d-none d-lg-block">
-                                  <a class="btn_1" href="Checkout.jsp">Checkout</a>
-                              </li>
+                               </li>
+
+                                 <li class="d-none d-lg-block">
+                                  <a class="btn btn-primary" href="Registration_3.jsp" style="margin-left:10px;margin-right:10px;">Signup</a>
+                                </li>
+
+                               <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" class="btn btn-primary" href="Login_3.jsp" style="margin-right:5px;">Hi, <%=username %></a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="dropdown-item" href="">Profile</a>
+                                     <a class="dropdown-item" href="Login_Admin.jsp">Admin Login</a>
+                                      <a class="dropdown-item" href="Logout.jsp">User Logout </a>
+                                      <a class="dropdown-item" href="Logout_Admin.jsp">Admin Logout </a>
+                                  </div>
+                               </li>
+
+                              
                                <li class="d-none d-lg-block">
-                                  <a class="btn_1" href="Checkout.jsp">User</a>
+                                  <a href="Checkout2.jsp"><i class="fa fa-shopping-cart" style="font-size:30px;color:white;margin-left:20px"></i></a>
                               </li>
+                              
                           </ul>
                       </div>
                   </nav>

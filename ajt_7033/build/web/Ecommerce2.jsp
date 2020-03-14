@@ -5,7 +5,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Ecommerce</title>
+    <title>Ecommerce2</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -53,6 +53,7 @@
         <div class="container">
             <div class="row">
        <%
+             // Database Connection
              Class.forName("com.mysql.jdbc.Driver");
              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/productdata_jdbc", "root", "");
              Statement stmt = con.createStatement();
@@ -60,14 +61,14 @@
              while (rs.next()) {
                    String img = "img/" + rs.getString("pimg");
         %>
-
                 <div class="col-lg-3">
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
                             <div class="form" style="margin-top:120px;">
+                                
                                 <form action="AddToCart2.jsp" method="post" role="form" class="effect">
                                     <div class="form-group">
-                                        <img src="<%= img %>" style="height:100px;margin-top:10px;" alt="T-shirt"/>
+                                        <img src="<%= img %>" style="height:100px;margin-top:10px;" alt="Cricket"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" name="pid" value="<%= rs.getInt("pid")%>"/>

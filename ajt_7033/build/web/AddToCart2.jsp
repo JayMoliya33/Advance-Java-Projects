@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add to Cart</title>
+    <title>Add to Cart2</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -40,18 +40,17 @@
     <body>
 
         <%
-        if(request.getParameter("addtocart")!=null)
+            if(request.getParameter("addtocart")!=null)
             {
                  int qty= Integer.parseInt(request.getParameter("qty"));
                  int pid= Integer.parseInt(request.getParameter("pid"));
-                HashMap<Integer,Integer> cartitem = (HashMap<Integer,Integer>)session.getAttribute("cart");;
+                HashMap<Integer,Integer> cartitem = (HashMap<Integer,Integer>)session.getAttribute("cart");
                  if(cartitem==null)
                 {
                     cartitem= new HashMap<Integer,Integer>();
                 }
                 cartitem.put(pid ,qty);
                 session.setAttribute("cart",cartitem);
-
             }
        %>
        

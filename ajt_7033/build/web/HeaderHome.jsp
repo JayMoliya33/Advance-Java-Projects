@@ -1,7 +1,17 @@
 <html lang="en">
     <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
+        <%
+                String username = "user" ;
+              if(session.getAttribute("user")!=null)
+                               {
+                                     username = session.getAttribute("user").toString();
+                                    // out.println("hello"+user);
+                               }
+         %>
 <header class="main_menu home_menu">
       <div class="container">
           <div class="row align-items-center">
@@ -64,11 +74,21 @@
                               </li>
                                
                               <li class="d-none d-lg-block">
-                                  <a class="btn_1" href="Checkout.jsp">Checkout</a>
+                                  <a class="btn btn-primary" href="Registration_3.jsp" style="margin-left:10px;margin-right:10px;">Signup</a>
+                                </li>
+
+                               <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" class="btn btn-primary" href="Login_3.jsp" style="color:red;">Hi, <%=username %></a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="dropdown-item" href="">Profile</a>
+                                      <a class="dropdown-item" href="Logout.jsp">Logout </a>
+                                  </div>
+                               </li>
+
+                               <li class="d-none d-lg-block">
+                                  <a href="Checkout2.jsp"><i class="fa fa-shopping-cart" style="font-size:30px;color:black;margin-left:20px"></i></a>
                               </li>
-                                <li class="d-none d-lg-block">
-                                  <a class="btn btn-success" href="Checkout.jsp">User</a>
-                              </li>
+
                           </ul>
                       </div>
                   </nav>
